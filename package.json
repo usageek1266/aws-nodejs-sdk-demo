@@ -12,6 +12,7 @@
   "dependencies": {
     "aws-sdk": "^2.831.0",
     "form-data": "^3.0.0",
+    "mime": "^2.5.0",
     "node-fetch": "^2.6.1",
     "request": "^2.88.2",
     "shelljs": "^0.8.4"
