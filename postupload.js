@@ -14,11 +14,10 @@ var s3 = new AWS.S3({
 });
 
 const bucket_name = "test1";
-const object_name = "3.txt";
-
+const object_name = "5.txt";
 
 const params = {
-    Expires: 3600,
+    Expires: 30,
     Bucket: bucket_name,
     Key: object_name,
     Conditions: [["content-length-range", 1, 10000000]], // you can upload file size range from 1Byte to 10MB
@@ -31,6 +30,8 @@ s3.createPresignedPost(params, (err, data) => {
     if(err) {
         console.log('s3.createPresignedPost err:',err);
     } else {
+        // let shelljs = require('shelljs');
+        // shelljs.exec( "sleep" + " " + 31 , { async : false } ) ;
         const form = new FormData();
         for(const field in data.fields) {
             form.append(field, data.fields[field]);
